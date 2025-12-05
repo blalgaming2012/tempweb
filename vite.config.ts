@@ -4,8 +4,15 @@ import react from "@vitejs/plugin-react";
 import svgr from "vite-plugin-svgr";
 import path from "path";
 
-// https://vite.dev/config/
+// https://vitejs.dev/config/
 export default defineConfig({
+  // >>> هذا هو الجزء الذي يحل المشكلة الأصلية لتشغيل السيرفر على الشبكة <<<
+  server: {
+    host: true, // يتيح الوصول من الشبكة المحلية (الهاتف)
+    port: 5173, // تثبيت المنفذ الافتراضي
+  },
+  // >>> نهاية الجزء المضاف <<<
+
   plugins: [
     react(),
     miaodaDevPlugin(),
