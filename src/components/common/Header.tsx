@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Moon, Sun, Code2 } from "lucide-react";
+import { Moon, Sun } from "lucide-react";
 import { useTheme } from "@/contexts/ThemeContext";
 import { useAuth } from "@/contexts/AuthContext";
 
@@ -19,14 +19,12 @@ const Header = () => {
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 transition-all duration-300">
       <nav className="container mx-auto px-4 xl:px-6">
         <div className="flex h-16 items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity group">
-            <div className="relative">
-              <Code2 className="h-7 w-7 text-primary group-hover:scale-110 transition-transform" />
-              <div className="absolute -top-1 -right-1 w-3 h-3 bg-accent rounded-full animate-pulse" />
-            </div>
-            <span className="text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              TempWeb
-            </span>
+          <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity group">
+            <img 
+              src="https://miaoda-conversation-file.s3cdn.medo.dev/user-814954cpocu8/conv-8149atjyv37k/20251206/file-814uzq0bnn5s.png" 
+              alt="TempWeb Logo" 
+              className="h-10 w-auto group-hover:scale-105 transition-transform"
+            />
           </Link>
 
           <div className="flex items-center gap-6">

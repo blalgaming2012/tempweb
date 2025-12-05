@@ -53,14 +53,15 @@ Four template examples displayed in a responsive grid:
 - User role management
 
 ### 8. Design Features
-- **Creative Logo**: Animated gradient logo with pulse effect
-- **Glass Effect Cards**: Modern glassmorphism design on all cards
+- **Custom Logo**: Professional TempWeb logo with globe icon integrated in header and footer
+- **Glass Effect Cards**: Modern glassmorphism design on all cards (Store Zone, Template Zone, Request Zone)
 - **Dark/Light Mode**: Seamless theme switching with smooth transitions
 - **Responsive Design**: Mobile-first approach with desktop optimization
 - **Modern Color Scheme**: 
   - Primary: #2563EB (modern blue)
   - Accent: #10B981 (success green)
   - Smooth transitions and hover effects
+- **Enhanced Interactions**: Scale effects on hover, smooth animations, gradient overlays
 
 ### 9. Contact Information
 - Phone: 01279102217
