@@ -23,7 +23,7 @@ const Header = () => {
             <img 
               src="https://miaoda-conversation-file.s3cdn.medo.dev/user-814954cpocu8/conv-8149atjyv37k/20251206/file-814uzq0bnn5s.png" 
               alt="TempWeb Logo" 
-              className="h-10 w-auto group-hover:scale-105 transition-transform"
+              className="h-14 w-auto group-hover:scale-105 transition-transform"
             />
           </Link>
 

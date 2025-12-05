@@ -9,7 +9,7 @@ const Footer = () => {
             <img 
               src="https://miaoda-conversation-file.s3cdn.medo.dev/user-814954cpocu8/conv-8149atjyv37k/20251206/file-814uzq0bnn5s.png" 
               alt="TempWeb Logo" 
-              className="h-8 w-auto mb-4"
+              className="h-12 w-auto mb-4"
             />
             <p className="text-muted-foreground">
               Professional web development services delivering high-quality HTML/CSS/JS websites tailored to your needs.
