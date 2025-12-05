@@ -19,7 +19,8 @@ const Footer = () => {
               Contact Information
             </h3>
             <div className="text-muted-foreground space-y-2">
-              <p>Email: contact@tempweb.com</p>
+              <p>Phone: 01279102217</p>
+              <p>Email: blalgaming892@gmail.com</p>
               <p>Support: Available 24/7</p>
             </div>
           </div>

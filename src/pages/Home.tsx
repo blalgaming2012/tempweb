@@ -94,6 +94,12 @@ const templateImages = [
     url: 'https://miaoda-site-img.s3cdn.medo.dev/images/aeff408b-1596-4a1c-8422-c86561712d4e.jpg',
     title: 'E-commerce Platform',
     description: 'Full-featured online store solution'
+  },
+  {
+    id: 4,
+    url: 'https://miaoda-site-img.s3cdn.medo.dev/images/cd43fa7a-e7a5-4ca5-bf84-979a2ec97cad.jpg',
+    title: 'Creative Landing Page',
+    description: 'Modern landing page with stunning visuals'
   }
 ];
 
@@ -274,10 +280,10 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
             {servicePackages.map((pkg) => (
-              <Card key={pkg.id} className={`relative ${pkg.popular ? 'border-primary shadow-lg' : ''}`}>
+              <Card key={pkg.id} className={`relative glass-effect hover:shadow-2xl transition-all duration-300 ${pkg.popular ? 'border-primary shadow-lg scale-105' : ''}`}>
                 {pkg.badge && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                    <Badge className="bg-accent text-accent-foreground">{pkg.badge}</Badge>
+                    <Badge className="bg-accent text-accent-foreground shadow-lg">{pkg.badge}</Badge>
                   </div>
                 )}
                 <CardHeader>
@@ -315,15 +321,16 @@ export default function Home() {
             <h2 className="text-3xl xl:text-4xl font-bold text-foreground mb-4">Template Zone</h2>
             <p className="text-lg text-muted-foreground">Explore our portfolio of stunning websites</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
             {templateImages.map((template) => (
-              <Card key={template.id} className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow">
+              <Card key={template.id} className="overflow-hidden group cursor-pointer glass-effect hover:shadow-2xl hover:scale-105 transition-all duration-300">
                 <div className="relative overflow-hidden aspect-video">
                   <img
                     src={template.url}
                     alt={template.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
                 <CardHeader>
                   <CardTitle className="text-xl">{template.title}</CardTitle>
@@ -341,7 +348,7 @@ export default function Home() {
             <h2 className="text-3xl xl:text-4xl font-bold text-foreground mb-4">Request Zone</h2>
             <p className="text-lg text-muted-foreground">Tell us about your project and we'll get back to you</p>
           </div>
-          <Card>
+          <Card className="glass-effect shadow-2xl">
             <CardHeader>
               <CardTitle>Project Request Form</CardTitle>
               <CardDescription>Fill in the details below and we'll contact you soon</CardDescription>
