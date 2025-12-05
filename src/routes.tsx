@@ -1,4 +1,9 @@
-import SamplePage from './pages/SamplePage';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Dashboard from './pages/Dashboard';
+import Admin from './pages/Admin';
+import PaymentSuccess from './pages/PaymentSuccess';
 import type { ReactNode } from 'react';
 
 interface RouteConfig {
@@ -10,9 +15,40 @@ interface RouteConfig {
 
 const routes: RouteConfig[] = [
   {
-    name: 'Sample Page',
+    name: 'Home',
     path: '/',
-    element: <SamplePage />
+    element: <Home />,
+    visible: false
+  },
+  {
+    name: 'Login',
+    path: '/login',
+    element: <Login />,
+    visible: false
+  },
+  {
+    name: 'Register',
+    path: '/register',
+    element: <Register />,
+    visible: false
+  },
+  {
+    name: 'Dashboard',
+    path: '/dashboard',
+    element: <Dashboard />,
+    visible: false
+  },
+  {
+    name: 'Admin',
+    path: '/admin',
+    element: <Admin />,
+    visible: false
+  },
+  {
+    name: 'Payment Success',
+    path: '/payment-success',
+    element: <PaymentSuccess />,
+    visible: false
   }
 ];
 
