@@ -1,3 +1,5 @@
+// src/pages/Dashboard.tsx
+
 import { useEffect, useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -29,6 +31,7 @@ export default function Dashboard() {
 
   const loadData = async () => {
     setLoading(true);
+    // نفترض أن ordersApi و requestsApi تستخدمان RLS لجلب بيانات المستخدم الحالي فقط.
     const [ordersData, requestsData] = await Promise.all([
       ordersApi.getUserOrders(),
       requestsApi.getUserRequests()
@@ -133,6 +136,46 @@ export default function Dashboard() {
     }
   };
 
+  /**
+   * 💡 الدالة الجديدة: لإلغاء طلب العميل وتحديث حالته إلى 'cancelled'
+   */
+  const handleCancelOrder = async (orderId: string) => {
+    if (!confirm('Are you sure you want to cancel this order? This cannot be undone.')) {
+      return;
+    }
+
+    try {
+      // سياسة RLS (UPDATE) التي أنشأناها تضمن أن المستخدم لا يمكنه إلغاء سوى طلبه الخاص.
+      const { error } = await supabase
+        .from('orders')
+        .update({ status: 'cancelled' }) 
+        .eq('id', orderId);
+
+      if (error) {
+        console.error('Error cancelling order:', error);
+        toast({
+          title: 'Cancellation Failed',
+          description: error.message || 'Could not cancel the order.',
+          variant: 'destructive'
+        });
+      } else {
+        toast({
+          title: 'Order Cancelled',
+          description: 'The order has been successfully cancelled.'
+        });
+        // إعادة تحميل البيانات لتحديث الواجهة وعرض الحالة الجديدة
+        loadData(); 
+      }
+    } catch (error) {
+      console.error('Cancellation error:', error);
+      toast({
+        title: 'Error',
+        description: 'An unexpected error occurred during cancellation.',
+        variant: 'destructive'
+      });
+    }
+  };
+
   const getStatusBadge = (status: string) => {
     const variants: Record<string, 'default' | 'secondary' | 'destructive' | 'outline'> = {
       pending: 'secondary',
@@ -214,7 +257,7 @@ export default function Dashboard() {
                       Total: ${order.total_amount} {order.currency.toUpperCase()}
                     </span>
                     <div className="flex gap-2">
-                      {order.status === 'pending' && (
+                      {(order.status === 'pending' || order.status === 'processing') && (
                         <>
                           <Button
                             size="sm"
@@ -229,6 +272,14 @@ export default function Dashboard() {
                             onClick={() => handleRetryPayment(order)}
                           >
                             Retry Payment
+                          </Button>
+                          {/* 💡 زر الإلغاء الجديد */}
+                          <Button
+                            size="sm"
+                            variant="destructive"
+                            onClick={() => handleCancelOrder(order.id)}
+                          >
+                            Cancel Order
                           </Button>
                         </>
                       )}

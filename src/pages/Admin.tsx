@@ -1,38 +1,53 @@
+// src/pages/Admin.tsx (الكود المحدث)
+
 import { useEffect, useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { useAuth } from '@/contexts/AuthContext';
-import { supabase } from '@/db/supabase';
 import { useNavigate } from 'react-router-dom';
 import { Users, Package, MessageSquare } from 'lucide-react';
+import { Button } from '@/components/ui/button'; // ⬅️ استيراد زر Button
 import type { Profile, Order, Request } from '@/types/types';
 
+import { supabase, getUserRole } from '@/db/supabase'; 
+
+
 export default function Admin() {
-  const { profile } = useAuth();
   const [profiles, setProfiles] = useState<Profile[]>([]);
   const [orders, setOrders] = useState<Order[]>([]);
   const [requests, setRequests] = useState<Request[]>([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+  const [userRole, setUserRole] = useState<string | null>(null); 
+
 
   useEffect(() => {
-    if (!profile) {
-      navigate('/login');
-      return;
-    }
-    if (profile.role !== 'admin') {
-      navigate('/');
-      return;
-    }
-    loadData();
-  }, [profile]);
+    const checkAuthAndLoadData = async () => {
+        setLoading(true);
+        const role = await getUserRole(); 
+
+        setUserRole(role);
+
+        if (role === 'guest') {
+            navigate('/login');
+            return;
+        }
+
+        if (role !== 'admin') {
+            navigate('/');
+            return;
+        }
+
+        await loadData();
+    };
+
+    checkAuthAndLoadData();
+  }, []); 
 
   const loadData = async () => {
-    setLoading(true);
     
     const [profilesRes, ordersRes, requestsRes] = await Promise.all([
-      supabase.from('profiles').select('*').order('created_at', { ascending: false }),
+      supabase.from('profiles').select('id, username, email, role, created_at').order('created_at', { ascending: false }),
       supabase.from('orders').select('*').order('created_at', { ascending: false }),
       supabase.from('requests').select('*').order('created_at', { ascending: false })
     ]);
@@ -44,12 +59,42 @@ export default function Admin() {
     setLoading(false);
   };
 
-  if (loading) {
+  /**
+   * دالة لإلغاء طلب معين وتحديث حالته في قاعدة البيانات
+   * @param orderId مُعرّف الطلب
+   */
+  const handleCancelOrder = async (orderId: string) => {
+    if (!confirm('Are you sure you want to cancel this order?')) {
+      return;
+    }
+
+    setLoading(true);
+    
+    const { error } = await supabase
+      .from('orders')
+      .update({ status: 'cancelled' }) // ⬅️ تعيين الحالة الجديدة
+      .eq('id', orderId);
+
+    if (error) {
+      console.error('Error cancelling order:', error);
+      alert('Failed to cancel order: ' + error.message);
+    } else {
+      alert('Order cancelled successfully!');
+      // إعادة تحميل البيانات لعرض التحديث في الواجهة
+      await loadData(); 
+    }
+  };
+
+  if (loading || userRole === null) { 
     return (
       <div className="container mx-auto px-4 py-12">
         <div className="text-center">Loading...</div>
       </div>
     );
+  }
+
+  if (userRole !== 'admin') {
+    return null; 
   }
 
   const stats = {
@@ -176,6 +221,17 @@ export default function Admin() {
                     </span>
                   )}
                 </div>
+                {/* ⬅️ إضافة زر إلغاء الطلب هنا */}
+                {(order.status === 'pending' || order.status === 'processing') && (
+                  <Button 
+                    variant="destructive" 
+                    size="sm" 
+                    onClick={() => handleCancelOrder(order.id)}
+                    className="mt-4"
+                  >
+                    Cancel Order
+                  </Button>
+                )}
               </CardContent>
             </Card>
           ))}
