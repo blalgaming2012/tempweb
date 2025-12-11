@@ -31,7 +31,6 @@ export default function Dashboard() {
 
   const loadData = async () => {
     setLoading(true);
-    // نفترض أن ordersApi و requestsApi تستخدمان RLS لجلب بيانات المستخدم الحالي فقط.
     const [ordersData, requestsData] = await Promise.all([
       ordersApi.getUserOrders(),
       requestsApi.getUserRequests()
@@ -137,7 +136,7 @@ export default function Dashboard() {
   };
 
   /**
-   * 💡 الدالة الجديدة: لإلغاء طلب العميل وتحديث حالته إلى 'cancelled'
+   * الدالة الجديدة: لإلغاء طلب العميل وتحديث حالته إلى 'cancelled'
    */
   const handleCancelOrder = async (orderId: string) => {
     if (!confirm('Are you sure you want to cancel this order? This cannot be undone.')) {
@@ -145,7 +144,7 @@ export default function Dashboard() {
     }
 
     try {
-      // سياسة RLS (UPDATE) التي أنشأناها تضمن أن المستخدم لا يمكنه إلغاء سوى طلبه الخاص.
+      // سياسة RLS (UPDATE) تضمن أن المستخدم لا يمكنه إلغاء سوى طلبه الخاص.
       const { error } = await supabase
         .from('orders')
         .update({ status: 'cancelled' }) 
@@ -257,6 +256,7 @@ export default function Dashboard() {
                       Total: ${order.total_amount} {order.currency.toUpperCase()}
                     </span>
                     <div className="flex gap-2">
+                      {/* 💡 يظهر الزر في حالتي pending أو processing */}
                       {(order.status === 'pending' || order.status === 'processing') && (
                         <>
                           <Button
