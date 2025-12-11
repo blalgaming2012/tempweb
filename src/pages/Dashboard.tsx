@@ -12,8 +12,13 @@ import { useToast } from '@/hooks/use-toast';
 import type { Order, Request } from '@/types/types';
 import { Package, MessageSquare, RefreshCw } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+// 💡 استيراد Hook الترجمة
+import { useTranslation } from 'react-i18next'; 
 
 export default function Dashboard() {
+  // 💡 استدعاء الـ Hook t للترجمة
+  const { t } = useTranslation(); 
+  
   const { user, profile } = useAuth();
   const [orders, setOrders] = useState<Order[]>([]);
   const [requests, setRequests] = useState<Request[]>([]);
@@ -43,8 +48,8 @@ export default function Dashboard() {
   const handleRefreshOrder = async (orderId: string, sessionId: string | null) => {
     if (!sessionId) {
       toast({
-        title: 'Error',
-        description: 'No session ID found for this order',
+        title: t('error'), // ترجمة
+        description: t('no_session_id_error'), // ترجمة
         variant: 'destructive'
       });
       return;
@@ -59,8 +64,8 @@ export default function Dashboard() {
         const errorMsg = await response.error?.context?.text();
         console.error('Edge function error in verify_stripe_payment:', errorMsg);
         toast({
-          title: 'Verification Error',
-          description: errorMsg || 'Failed to verify payment',
+          title: t('verification_error'), // ترجمة
+          description: errorMsg || t('failed_to_verify_payment'), // ترجمة
           variant: 'destructive'
         });
         return;
@@ -69,22 +74,22 @@ export default function Dashboard() {
       const data = response.data?.data;
       if (data?.verified) {
         toast({
-          title: 'Payment Verified',
-          description: 'Order status updated successfully'
+          title: t('payment_verified'), // ترجمة
+          description: t('order_status_updated') // ترجمة
         });
         loadData();
       } else {
         toast({
-          title: 'Payment Not Completed',
-          description: 'This order has not been paid yet',
+          title: t('payment_not_completed'), // ترجمة
+          description: t('order_not_paid_yet'), // ترجمة
           variant: 'destructive'
         });
       }
     } catch (error) {
       console.error('Refresh error:', error);
       toast({
-        title: 'Error',
-        description: 'Failed to refresh order status',
+        title: t('error'), // ترجمة
+        description: t('failed_to_refresh_status'), // ترجمة
         variant: 'destructive'
       });
     }
@@ -95,8 +100,8 @@ export default function Dashboard() {
       const { data: { session } } = await supabase.auth.getSession();
       if (!session) {
         toast({
-          title: 'Session Expired',
-          description: 'Please login again',
+          title: t('session_expired'), // ترجمة
+          description: t('please_login_again'), // ترجمة
           variant: 'destructive'
         });
         navigate('/login');
@@ -115,8 +120,8 @@ export default function Dashboard() {
         const errorMsg = await response.error?.context?.text();
         console.error('Edge function error in create_stripe_checkout:', errorMsg);
         toast({
-          title: 'Payment Error',
-          description: errorMsg || 'Failed to create checkout session',
+          title: t('payment_error'), // ترجمة
+          description: errorMsg || t('failed_to_create_checkout'), // ترجمة
           variant: 'destructive'
         });
         return;
@@ -128,23 +133,20 @@ export default function Dashboard() {
     } catch (error) {
       console.error('Retry payment error:', error);
       toast({
-        title: 'Error',
-        description: 'An unexpected error occurred',
+        title: t('error'), // ترجمة
+        description: t('unexpected_error_occurred'), // ترجمة
         variant: 'destructive'
       });
     }
   };
 
-  /**
-   * الدالة الجديدة: لإلغاء طلب العميل وتحديث حالته إلى 'cancelled'
-   */
   const handleCancelOrder = async (orderId: string) => {
-    if (!confirm('Are you sure you want to cancel this order? This cannot be undone.')) {
+    // 💡 استخدام مفتاح الترجمة لرسالة التأكيد
+    if (!confirm(t('cancellation_confirm'))) { 
       return;
     }
 
     try {
-      // سياسة RLS (UPDATE) تضمن أن المستخدم لا يمكنه إلغاء سوى طلبه الخاص.
       const { error } = await supabase
         .from('orders')
         .update({ status: 'cancelled' }) 
@@ -153,23 +155,22 @@ export default function Dashboard() {
       if (error) {
         console.error('Error cancelling order:', error);
         toast({
-          title: 'Cancellation Failed',
-          description: error.message || 'Could not cancel the order.',
+          title: t('cancellation_failed'), // ترجمة
+          description: error.message || t('could_not_cancel_order'), // ترجمة
           variant: 'destructive'
         });
       } else {
         toast({
-          title: 'Order Cancelled',
-          description: 'The order has been successfully cancelled.'
+          title: t('order_cancelled'), // ترجمة
+          description: t('order_successfully_cancelled') // ترجمة
         });
-        // إعادة تحميل البيانات لتحديث الواجهة وعرض الحالة الجديدة
         loadData(); 
       }
     } catch (error) {
       console.error('Cancellation error:', error);
       toast({
-        title: 'Error',
-        description: 'An unexpected error occurred during cancellation.',
+        title: t('error'), // ترجمة
+        description: t('unexpected_error_cancellation'), // ترجمة
         variant: 'destructive'
       });
     }
@@ -182,9 +183,12 @@ export default function Dashboard() {
       cancelled: 'destructive',
       refunded: 'outline'
     };
+    // 💡 ترجمة حالة الطلب قبل عرضها
+    const translatedStatus = t(status.toLowerCase()); 
+
     return (
       <Badge variant={variants[status] || 'default'}>
-        {status.charAt(0).toUpperCase() + status.slice(1)}
+        {translatedStatus}
       </Badge>
     );
   };
@@ -192,7 +196,7 @@ export default function Dashboard() {
   if (loading) {
     return (
       <div className="container mx-auto px-4 py-12">
-        <div className="text-center">Loading...</div>
+        <div className="text-center">{t('loading')}...</div> {/* ترجمة */}
       </div>
     );
   }
@@ -200,9 +204,12 @@ export default function Dashboard() {
   return (
     <div className="container mx-auto px-4 py-12">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-foreground mb-2">Dashboard</h1>
+        {/* 💡 ترجمة عنوان لوحة التحكم */}
+        <h1 className="text-3xl font-bold text-foreground mb-2">{t('dashboard_title')}</h1>
+        
         <p className="text-muted-foreground">
-          Welcome back, {profile?.username || 'User'}!
+          {/* 💡 استخدام Interpolation لرسالة الترحيب */}
+          {t('welcome_message', { username: profile?.username || 'User' })}
         </p>
       </div>
 
@@ -210,11 +217,11 @@ export default function Dashboard() {
         <TabsList>
           <TabsTrigger value="orders" className="flex items-center gap-2">
             <Package className="w-4 h-4" />
-            Orders
+            {t('orders_tab')} {/* 💡 ترجمة */}
           </TabsTrigger>
           <TabsTrigger value="requests" className="flex items-center gap-2">
             <MessageSquare className="w-4 h-4" />
-            Requests
+            {t('requests_tab')} {/* 💡 ترجمة */}
           </TabsTrigger>
         </TabsList>
 
@@ -223,7 +230,7 @@ export default function Dashboard() {
             <Card>
               <CardContent className="py-12 text-center">
                 <Package className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
-                <p className="text-muted-foreground">No orders yet</p>
+                <p className="text-muted-foreground">{t('no_orders')}</p> {/* 💡 ترجمة */}
               </CardContent>
             </Card>
           ) : (
@@ -232,7 +239,7 @@ export default function Dashboard() {
                 <CardHeader>
                   <div className="flex justify-between items-start">
                     <div>
-                      <CardTitle className="text-lg">Order #{order.id.slice(0, 8)}</CardTitle>
+                      <CardTitle className="text-lg">{t('order')} #{order.id.slice(0, 8)}</CardTitle> {/* ترجمة "Order" */}
                       <CardDescription>
                         {new Date(order.created_at).toLocaleDateString()}
                       </CardDescription>
@@ -242,7 +249,7 @@ export default function Dashboard() {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div>
-                    <h4 className="font-medium mb-2">Items:</h4>
+                    <h4 className="font-medium mb-2">{t('items')}</h4> {/* 💡 ترجمة */}
                     <ul className="space-y-1">
                       {order.items.map((item, index) => (
                         <li key={index} className="text-sm text-muted-foreground">
@@ -253,10 +260,9 @@ export default function Dashboard() {
                   </div>
                   <div className="flex justify-between items-center pt-4 border-t">
                     <span className="font-semibold">
-                      Total: ${order.total_amount} {order.currency.toUpperCase()}
+                      {t('total')}: ${order.total_amount} {order.currency.toUpperCase()} {/* 💡 ترجمة */}
                     </span>
                     <div className="flex gap-2">
-                      {/* 💡 يظهر الزر في حالتي pending أو processing */}
                       {(order.status === 'pending' || order.status === 'processing') && (
                         <>
                           <Button
@@ -265,27 +271,26 @@ export default function Dashboard() {
                             onClick={() => handleRefreshOrder(order.id, order.stripe_session_id)}
                           >
                             <RefreshCw className="w-4 h-4 mr-2" />
-                            Refresh Status
+                            {t('refresh_status')} {/* 💡 ترجمة */}
                           </Button>
                           <Button
                             size="sm"
                             onClick={() => handleRetryPayment(order)}
                           >
-                            Retry Payment
+                            {t('retry_payment')} {/* 💡 ترجمة */}
                           </Button>
-                          {/* 💡 زر الإلغاء الجديد */}
                           <Button
                             size="sm"
                             variant="destructive"
                             onClick={() => handleCancelOrder(order.id)}
                           >
-                            Cancel Order
+                            {t('cancel_order')} {/* 💡 ترجمة */}
                           </Button>
                         </>
                       )}
                       {order.status === 'completed' && order.completed_at && (
                         <span className="text-sm text-muted-foreground">
-                          Completed: {new Date(order.completed_at).toLocaleDateString()}
+                          {t('completed')}: {new Date(order.completed_at).toLocaleDateString()} {/* ترجمة "Completed" */}
                         </span>
                       )}
                     </div>
@@ -301,7 +306,7 @@ export default function Dashboard() {
             <Card>
               <CardContent className="py-12 text-center">
                 <MessageSquare className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
-                <p className="text-muted-foreground">No requests yet</p>
+                <p className="text-muted-foreground">{t('no_requests')}</p> {/* 💡 ترجمة */}
               </CardContent>
             </Card>
           ) : (
@@ -315,21 +320,21 @@ export default function Dashboard() {
                         {new Date(request.created_at).toLocaleDateString()}
                       </CardDescription>
                     </div>
-                    <Badge>{request.status}</Badge>
+                    {getStatusBadge(request.status)}
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-2">
                   <div>
-                    <span className="text-sm font-medium">Email:</span>
+                    <span className="text-sm font-medium">{t('email')}:</span> {/* ترجمة "Email" */}
                     <p className="text-sm text-muted-foreground">{request.email}</p>
                   </div>
                   <div>
-                    <span className="text-sm font-medium">Project Description:</span>
+                    <span className="text-sm font-medium">{t('project_description')}</span> {/* 💡 ترجمة */}
                     <p className="text-sm text-muted-foreground">{request.project_description}</p>
                   </div>
                   {request.budget_range && (
                     <div>
-                      <span className="text-sm font-medium">Budget Range:</span>
+                      <span className="text-sm font-medium">{t('budget_range')}</span> {/* 💡 ترجمة */}
                       <p className="text-sm text-muted-foreground">{request.budget_range}</p>
                     </div>
                   )}
