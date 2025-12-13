@@ -22,6 +22,12 @@ export default {
             }
         },
         extend: {
+            // 🟢 الإضافة هنا: الخطوط الأنيقة
+            fontFamily: {
+                sans: ['Cairo', 'sans-serif'], 
+                heading: ['Montserrat', 'sans-serif'], 
+            },
+            // ------------------------------------
             colors: {
                 border: 'hsl(var(--border))',
                 borderColor: {
