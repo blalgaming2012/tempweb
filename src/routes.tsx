@@ -1,5 +1,10 @@
-import SamplePage from './pages/SamplePage';
 import type { ReactNode } from 'react';
+import Dashboard from './pages/Dashboard';
+import ServiceRequests from './pages/ServiceRequests';
+import WorkerTasks from './pages/WorkerTasks';
+import AdminPanel from './pages/AdminPanel';
+import Login from './pages/Login';
+import ProtectedRoute from './components/ProtectedRoute';
 
 interface RouteConfig {
   name: string;
@@ -10,10 +15,47 @@ interface RouteConfig {
 
 const routes: RouteConfig[] = [
   {
-    name: 'Sample Page',
+    name: 'تسجيل الدخول',
+    path: '/login',
+    element: <Login />,
+    visible: false,
+  },
+  {
+    name: 'لوحة التحكم',
     path: '/',
-    element: <SamplePage />
-  }
+    element: (
+      <ProtectedRoute>
+        <Dashboard />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    name: 'طلبات الخدمة',
+    path: '/requests',
+    element: (
+      <ProtectedRoute allowedRoles={['admin', 'customer_service']}>
+        <ServiceRequests />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    name: 'مهامي',
+    path: '/my-tasks',
+    element: (
+      <ProtectedRoute allowedRoles={['worker']}>
+        <WorkerTasks />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    name: 'إدارة المستخدمين',
+    path: '/admin',
+    element: (
+      <ProtectedRoute allowedRoles={['admin']}>
+        <AdminPanel />
+      </ProtectedRoute>
+    ),
+  },
 ];
 
 export default routes;
