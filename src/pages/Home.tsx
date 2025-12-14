@@ -62,10 +62,10 @@ export default function Home() {
       <section className="container py-20">
         <div className="text-center mb-12 animate-fade-in-up">
           <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
-            المميزات الرئيسية
+            {t('home.features.title')}
           </h2>
           <p className="text-muted-foreground text-lg">
-            كل ما تحتاجه لإدارة خدماتك بكفاءة
+            {t('home.allYouNeed')}
           </p>
         </div>
 
@@ -75,9 +75,9 @@ export default function Home() {
               <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                 <ClipboardList className="w-6 h-6 text-primary" />
               </div>
-              <CardTitle>إدارة طلبات الخدمة</CardTitle>
+              <CardTitle>{t('home.features.serviceManagement.title')}</CardTitle>
               <CardDescription>
-                نظام متكامل لإنشاء ومتابعة طلبات الخدمة مع إمكانية تعيين العمال وتحديث الحالات
+                {t('home.features.serviceManagement.description')}
               </CardDescription>
             </CardHeader>
           </Card>
@@ -87,9 +87,9 @@ export default function Home() {
               <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                 <Users className="w-6 h-6 text-primary" />
               </div>
-              <CardTitle>إدارة العمال</CardTitle>
+              <CardTitle>{t('home.features.workerManagement.title')}</CardTitle>
               <CardDescription>
-                تنظيم وتوزيع المهام على العمال مع متابعة الأداء والإنتاجية بشكل دقيق
+                {t('home.features.workerManagement.description')}
               </CardDescription>
             </CardHeader>
           </Card>
@@ -99,9 +99,9 @@ export default function Home() {
               <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                 <Shield className="w-6 h-6 text-primary" />
               </div>
-              <CardTitle>أمان عالي</CardTitle>
+              <CardTitle>{t('home.features.security.title')}</CardTitle>
               <CardDescription>
-                نظام صلاحيات متقدم يضمن وصول كل مستخدم للبيانات المخصصة له فقط
+                {t('home.features.security.description')}
               </CardDescription>
             </CardHeader>
           </Card>
@@ -111,9 +111,9 @@ export default function Home() {
               <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                 <Sparkles className="w-6 h-6 text-primary" />
               </div>
-              <CardTitle>واجهة تفاعلية</CardTitle>
+              <CardTitle>{t('home.features.interactive.title')}</CardTitle>
               <CardDescription>
-                تصميم عصري مع رسوم متحركة سلسة وتأثيرات تفاعلية لتجربة مستخدم مميزة
+                {t('home.features.interactive.description')}
               </CardDescription>
             </CardHeader>
           </Card>
@@ -123,9 +123,9 @@ export default function Home() {
               <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                 <CheckCircle2 className="w-6 h-6 text-primary" />
               </div>
-              <CardTitle>متابعة فورية</CardTitle>
+              <CardTitle>{t('home.features.realtime.title')}</CardTitle>
               <CardDescription>
-                تحديثات لحظية لحالة الطلبات والمهام مع إحصائيات شاملة ومفصلة
+                {t('home.features.realtime.description')}
               </CardDescription>
             </CardHeader>
           </Card>
@@ -135,9 +135,9 @@ export default function Home() {
               <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                 <Zap className="w-6 h-6 text-primary" />
               </div>
-              <CardTitle>أداء سريع</CardTitle>
+              <CardTitle>{t('home.features.performance.title')}</CardTitle>
               <CardDescription>
-                تقنيات حديثة تضمن سرعة استجابة عالية وتجربة سلسة بدون تأخير
+                {t('home.features.performance.description')}
               </CardDescription>
             </CardHeader>
           </Card>
@@ -148,10 +148,10 @@ export default function Home() {
       <section className="container py-20">
         <div className="text-center mb-12 animate-fade-in-up">
           <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
-            أدوار المستخدمين
+            {t('home.roles.title')}
           </h2>
           <p className="text-muted-foreground text-lg">
-            نظام صلاحيات متعدد المستويات
+            {t('home.roles.subtitle')}
           </p>
         </div>
 
@@ -161,25 +161,26 @@ export default function Home() {
               <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary-glow rounded-2xl flex items-center justify-center mx-auto mb-4 animate-pulse-glow">
                 <Shield className="w-8 h-8 text-primary-foreground" />
               </div>
-              <CardTitle className="text-2xl">المدير</CardTitle>
+              <CardTitle className="text-2xl">{t('home.roles.admin.title')}</CardTitle>
+              <CardDescription className="mt-2">{t('home.roles.admin.description')}</CardDescription>
             </CardHeader>
             <CardContent>
               <ul className="space-y-2 text-muted-foreground">
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                  <span>صلاحيات كاملة للنظام</span>
+                  <span>{t('home.roles.admin.features.1')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                  <span>إدارة المستخدمين</span>
+                  <span>{t('home.roles.admin.features.2')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                  <span>عرض جميع الإحصائيات</span>
+                  <span>{t('home.roles.admin.features.3')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                  <span>إدارة الطلبات والمهام</span>
+                  <span>{t('home.roles.admin.features.4')}</span>
                 </li>
               </ul>
             </CardContent>
@@ -190,25 +191,26 @@ export default function Home() {
               <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary-glow rounded-2xl flex items-center justify-center mx-auto mb-4 animate-pulse-glow">
                 <ClipboardList className="w-8 h-8 text-primary-foreground" />
               </div>
-              <CardTitle className="text-2xl">خدمة العملاء</CardTitle>
+              <CardTitle className="text-2xl">{t('home.roles.customerService.title')}</CardTitle>
+              <CardDescription className="mt-2">{t('home.roles.customerService.description')}</CardDescription>
             </CardHeader>
             <CardContent>
               <ul className="space-y-2 text-muted-foreground">
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                  <span>إنشاء طلبات الخدمة</span>
+                  <span>{t('home.roles.customerService.features.1')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                  <span>تعيين العمال</span>
+                  <span>{t('home.roles.customerService.features.2')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                  <span>تحديث حالة الطلبات</span>
+                  <span>{t('home.roles.customerService.features.3')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                  <span>متابعة الطلبات</span>
+                  <span>{t('home.roles.customerService.features.4')}</span>
                 </li>
               </ul>
             </CardContent>
@@ -219,25 +221,26 @@ export default function Home() {
               <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary-glow rounded-2xl flex items-center justify-center mx-auto mb-4 animate-pulse-glow">
                 <Users className="w-8 h-8 text-primary-foreground" />
               </div>
-              <CardTitle className="text-2xl">العامل</CardTitle>
+              <CardTitle className="text-2xl">{t('home.roles.worker.title')}</CardTitle>
+              <CardDescription className="mt-2">{t('home.roles.worker.description')}</CardDescription>
             </CardHeader>
             <CardContent>
               <ul className="space-y-2 text-muted-foreground">
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                  <span>عرض المهام المخصصة</span>
+                  <span>{t('home.roles.worker.features.1')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                  <span>تحديث حالة المهام</span>
+                  <span>{t('home.roles.worker.features.2')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                  <span>إضافة ملاحظات</span>
+                  <span>{t('home.roles.worker.features.3')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                  <span>متابعة الإنجاز</span>
+                  <span>{t('home.roles.worker.features.4')}</span>
                 </li>
               </ul>
             </CardContent>

@@ -36,46 +36,66 @@
     "welcome": "Welcome to",
     "getStarted": "Get Started",
     "subtitle": "Interactive Services and Workers Management System",
+    "allYouNeed": "Everything you need to manage your services efficiently",
     "features": {
       "title": "Key Features",
-      "customerService": {
-        "title": "Customer Service",
-        "description": "Comprehensive customer request management with an easy-to-use interface"
+      "serviceManagement": {
+        "title": "Service Request Management",
+        "description": "Complete system for creating and tracking service requests with worker assignment and status updates"
       },
       "workerManagement": {
         "title": "Worker Management",
-        "description": "Advanced system for managing workers and tracking their performance"
+        "description": "Organize and distribute tasks to workers with precise performance and productivity tracking"
       },
       "security": {
         "title": "High Security",
-        "description": "Advanced data protection with Row Level Security"
+        "description": "Advanced permission system ensuring each user accesses only their designated data"
+      },
+      "interactive": {
+        "title": "Interactive Interface",
+        "description": "Modern design with smooth animations and interactive effects for an exceptional user experience"
+      },
+      "realtime": {
+        "title": "Real-time Tracking",
+        "description": "Instant updates for request and task status with comprehensive and detailed statistics"
       },
       "performance": {
-        "title": "Optimized Performance",
-        "description": "Optimized database queries for maximum speed"
-      },
-      "darkMode": {
-        "title": "Dark Mode",
-        "description": "Full support for dark and light modes"
-      },
-      "responsive": {
-        "title": "Responsive Design",
-        "description": "Responsive interface that works on all devices"
+        "title": "Fast Performance",
+        "description": "Modern technologies ensuring high response speed and smooth experience without delays"
       }
     },
-    "howItWorks": {
-      "title": "How It Works",
-      "step1": {
-        "title": "Login",
-        "description": "Log in using your email and password"
+    "roles": {
+      "title": "Available Roles",
+      "subtitle": "Choose the role that suits you",
+      "customerService": {
+        "title": "Customer Service",
+        "description": "Manage customer requests, assign workers, and track execution",
+        "features": {
+          "1": "Create and edit service requests",
+          "2": "Assign workers to requests",
+          "3": "Track request status",
+          "4": "Comprehensive statistics"
+        }
       },
-      "step2": {
-        "title": "Choose Your Role",
-        "description": "Access the appropriate dashboard for your role (customer service or worker)"
+      "worker": {
+        "title": "Worker",
+        "description": "View assigned tasks and update execution status",
+        "features": {
+          "1": "View only assigned tasks",
+          "2": "Update task status",
+          "3": "View customer details",
+          "4": "Track achievements"
+        }
       },
-      "step3": {
-        "title": "Start Working",
-        "description": "Use the available tools to efficiently manage tasks and requests"
+      "admin": {
+        "title": "Administrator",
+        "description": "Complete system and user management",
+        "features": {
+          "1": "User management",
+          "2": "Assign permissions",
+          "3": "View all data",
+          "4": "Advanced statistics"
+        }
       }
     }
   },
