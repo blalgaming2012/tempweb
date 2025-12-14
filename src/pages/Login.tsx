@@ -6,7 +6,6 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
-import { Zap, Sparkles } from 'lucide-react';
 
 export default function Login() {
   const [username, setUsername] = useState('');
@@ -59,12 +58,15 @@ export default function Login() {
       <div className="parallax-bg" />
       <Card className="w-full max-w-md animate-scale-in hover-lift">
         <CardHeader className="text-center">
-          <div className="mx-auto w-16 h-16 bg-gradient-to-br from-primary to-primary-glow rounded-2xl flex items-center justify-center mb-4 animate-pulse-glow">
-            <Zap className="w-10 h-10 text-primary-foreground" />
+          <div className="mx-auto mb-6 animate-fade-in-down">
+            <img 
+              src="/tempweb-logo.png" 
+              alt="Tempweb Logo" 
+              className="w-64 h-auto mx-auto animate-pulse-glow"
+            />
           </div>
-          <CardTitle className="text-3xl font-heading gradient-text flex items-center justify-center gap-2">
-            Tempweb
-            <Sparkles className="w-6 h-6 text-primary animate-bounce-subtle" />
+          <CardTitle className="text-2xl font-heading gradient-text">
+            تسجيل الدخول
           </CardTitle>
           <CardDescription className="text-base mt-2">نظام إدارة الخدمات والعمال التفاعلي</CardDescription>
         </CardHeader>
@@ -111,19 +113,6 @@ export default function Login() {
               )}
             </Button>
           </form>
-          
-          <div className="mt-6 p-4 bg-muted/50 rounded-lg text-sm space-y-2 animate-fade-in-up stagger-4 hover-glow">
-            <p className="font-semibold text-center mb-2 flex items-center justify-center gap-2">
-              <Sparkles className="w-4 h-4 text-primary" />
-              حسابات تجريبية
-              <Sparkles className="w-4 h-4 text-primary" />
-            </p>
-            <div className="space-y-1">
-              <p><strong>مدير:</strong> admin / admin123</p>
-              <p><strong>خدمة عملاء:</strong> service1 / service123</p>
-              <p><strong>عامل:</strong> worker1 / worker123</p>
-            </div>
-          </div>
         </CardContent>
       </Card>
     </div>

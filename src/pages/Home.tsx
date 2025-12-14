@@ -14,17 +14,13 @@ export default function Home() {
       {/* Hero Section */}
       <section className="container py-20 animate-fade-in-down">
         <div className="max-w-4xl mx-auto text-center space-y-6">
-          <div className="flex justify-center mb-6">
-            <div className="w-24 h-24 bg-gradient-to-br from-primary to-primary-glow rounded-3xl flex items-center justify-center animate-pulse-glow">
-              <Zap className="w-16 h-16 text-primary-foreground" />
-            </div>
+          <div className="flex justify-center mb-6 animate-pulse-glow">
+            <img 
+              src="/tempweb-logo.png" 
+              alt="Tempweb Logo" 
+              className="w-96 h-auto"
+            />
           </div>
-          
-          <h1 className="text-5xl md:text-6xl font-heading font-bold gradient-text flex items-center justify-center gap-3 flex-wrap">
-            <Sparkles className="w-12 h-12 text-primary animate-bounce-subtle" />
-            Tempweb
-            <Sparkles className="w-12 h-12 text-primary animate-bounce-subtle" />
-          </h1>
           
           <p className="text-2xl md:text-3xl text-muted-foreground font-medium">
             نظام إدارة الخدمات والعمال التفاعلي
@@ -274,10 +270,11 @@ export default function Home() {
         <div className="container py-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-primary to-primary-glow rounded-lg flex items-center justify-center">
-                <Zap className="w-5 h-5 text-primary-foreground" />
-              </div>
-              <span className="font-heading font-bold gradient-text">Tempweb</span>
+              <img 
+                src="/tempweb-logo.png" 
+                alt="Tempweb Logo" 
+                className="h-8 w-auto"
+              />
             </div>
             <p className="text-sm text-muted-foreground">
               2025 Tempweb

@@ -49,13 +49,11 @@ export default function Header() {
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-6">
           <Link to="/" className="flex items-center gap-2 hover-scale">
-            <div className="w-10 h-10 bg-gradient-to-br from-primary to-primary-glow rounded-lg flex items-center justify-center animate-pulse-glow">
-              <Zap className="w-6 h-6 text-primary-foreground" />
-            </div>
-            <div className="flex flex-col">
-              <span className="text-xl font-heading font-bold gradient-text">Tempweb</span>
-              <span className="text-xs text-muted-foreground">نظام إدارة الخدمات</span>
-            </div>
+            <img 
+              src="/tempweb-logo.png" 
+              alt="Tempweb Logo" 
+              className="h-10 w-auto"
+            />
           </Link>
 
           {user && (
