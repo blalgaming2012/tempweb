@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
 import ServiceRequests from './pages/ServiceRequests';
 import WorkerTasks from './pages/WorkerTasks';
@@ -15,6 +16,11 @@ interface RouteConfig {
 
 const routes: RouteConfig[] = [
   {
+    name: 'الصفحة الرئيسية',
+    path: '/',
+    element: <Home />,
+  },
+  {
     name: 'تسجيل الدخول',
     path: '/login',
     element: <Login />,
@@ -22,7 +28,7 @@ const routes: RouteConfig[] = [
   },
   {
     name: 'لوحة التحكم',
-    path: '/',
+    path: '/dashboard',
     element: (
       <ProtectedRoute>
         <Dashboard />
