@@ -10,7 +10,10 @@
     "workers": "العمال",
     "customers": "العملاء",
     "reports": "التقارير",
-    "settings": "الإعدادات"
+    "settings": "الإعدادات",
+    "serviceRequests": "طلبات الخدمة",
+    "workerTasks": "مهام العمال",
+    "adminPanel": "لوحة الإدارة"
   },
   "auth": {
     "login": "تسجيل الدخول",
@@ -24,9 +27,15 @@
     "loginSuccess": "تم تسجيل الدخول بنجاح",
     "loginError": "فشل تسجيل الدخول"
   },
+  "roles": {
+    "admin": "مدير",
+    "service": "خدمة عملاء",
+    "worker": "عامل"
+  },
   "home": {
     "welcome": "مرحباً بك في",
     "getStarted": "ابدأ الآن",
+    "subtitle": "نظام إدارة الخدمات والعمال التفاعلي",
     "features": {
       "title": "المميزات الرئيسية",
       "customerService": {
@@ -73,9 +82,145 @@
   "dashboard": {
     "title": "لوحة التحكم",
     "welcome": "مرحباً",
-    "overview": "نظرة عامة",
-    "statistics": "الإحصائيات",
-    "recentActivity": "النشاط الأخير"
+    "systemSummary": "إليك ملخص النظام",
+    "tasksSummary": "إليك ملخص مهامك",
+    "serviceRequests": "طلبات الخدمة",
+    "tasks": "المهام",
+    "users": "المستخدمون",
+    "stats": {
+      "totalRequests": "إجمالي الطلبات",
+      "allRequests": "جميع الطلبات",
+      "newRequests": "طلبات جديدة",
+      "notProcessed": "لم يتم معالجتها",
+      "inProgress": "قيد التنفيذ",
+      "workingOn": "جاري العمل عليها",
+      "completed": "مكتملة",
+      "done": "تم إنجازها",
+      "totalTasks": "إجمالي المهام",
+      "allTasks": "جميع المهام",
+      "assignedToYou": "جميع المهام المخصصة لك",
+      "pendingTasks": "مهام معلقة",
+      "pending": "معلقة",
+      "waitingToStart": "في انتظار البدء",
+      "totalWorkers": "العمال",
+      "allWorkers": "إجمالي العمال"
+    }
+  },
+  "serviceRequests": {
+    "title": "طلبات الخدمة",
+    "createRequest": "إنشاء طلب جديد",
+    "editRequest": "تعديل الطلب",
+    "viewRequest": "عرض الطلب",
+    "deleteRequest": "حذف الطلب",
+    "assignWorker": "تعيين عامل",
+    "filterByStatus": "تصفية حسب الحالة",
+    "all": "الكل",
+    "customerInfo": "معلومات العميل",
+    "customerName": "اسم العميل",
+    "customerPhone": "رقم الهاتف",
+    "customerEmail": "البريد الإلكتروني",
+    "serviceInfo": "معلومات الخدمة",
+    "service": "الخدمة",
+    "selectService": "اختر الخدمة",
+    "description": "الوصف",
+    "priority": "الأولوية",
+    "status": "الحالة",
+    "assignedWorker": "العامل المعين",
+    "selectWorker": "اختر عامل",
+    "createdAt": "تاريخ الإنشاء",
+    "updatedAt": "تاريخ التحديث",
+    "priorities": {
+      "low": "منخفضة",
+      "medium": "متوسطة",
+      "high": "عالية"
+    },
+    "statuses": {
+      "new": "جديد",
+      "assigned": "معين",
+      "in_progress": "قيد التنفيذ",
+      "completed": "مكتمل",
+      "cancelled": "ملغي"
+    },
+    "messages": {
+      "createSuccess": "تم إنشاء الطلب",
+      "createSuccessDesc": "تم إنشاء طلب الخدمة بنجاح",
+      "updateSuccess": "تم تحديث الحالة",
+      "updateSuccessDesc": "تم تحديث حالة الطلب بنجاح",
+      "assignSuccess": "تم تعيين العامل",
+      "assignSuccessDesc": "تم تعيين العامل للطلب بنجاح",
+      "deleteSuccess": "تم حذف الطلب",
+      "deleteSuccessDesc": "تم حذف الطلب بنجاح",
+      "error": "خطأ",
+      "fillRequired": "يرجى ملء جميع الحقول المطلوبة",
+      "confirmDelete": "هل أنت متأكد من حذف هذا الطلب؟",
+      "noRequests": "لا توجد طلبات"
+    }
+  },
+  "workerTasks": {
+    "title": "مهامي",
+    "myTasks": "مهامي",
+    "taskDetails": "تفاصيل المهمة",
+    "updateStatus": "تحديث الحالة",
+    "taskInfo": "معلومات المهمة",
+    "requestInfo": "معلومات الطلب",
+    "customerInfo": "معلومات العميل",
+    "service": "الخدمة",
+    "description": "الوصف",
+    "priority": "الأولوية",
+    "status": "الحالة",
+    "customerName": "اسم العميل",
+    "customerPhone": "رقم الهاتف",
+    "customerEmail": "البريد الإلكتروني",
+    "assignedAt": "تاريخ التعيين",
+    "updatedAt": "تاريخ التحديث",
+    "filterByStatus": "تصفية حسب الحالة",
+    "all": "الكل",
+    "statuses": {
+      "pending": "معلقة",
+      "in_progress": "قيد التنفيذ",
+      "completed": "مكتملة"
+    },
+    "priorities": {
+      "low": "منخفضة",
+      "medium": "متوسطة",
+      "high": "عالية"
+    },
+    "messages": {
+      "updateSuccess": "تم تحديث الحالة",
+      "updateSuccessDesc": "تم تحديث حالة المهمة بنجاح",
+      "noTasks": "لا توجد مهام مخصصة لك"
+    }
+  },
+  "adminPanel": {
+    "title": "لوحة الإدارة",
+    "userManagement": "إدارة المستخدمين",
+    "addUser": "إضافة مستخدم",
+    "editUser": "تعديل المستخدم",
+    "deleteUser": "حذف المستخدم",
+    "fullName": "الاسم الكامل",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "role": "الدور",
+    "selectRole": "اختر الدور",
+    "createdAt": "تاريخ الإنشاء",
+    "actions": "الإجراءات",
+    "messages": {
+      "createSuccess": "تم إنشاء المستخدم",
+      "createSuccessDesc": "تم إنشاء المستخدم بنجاح",
+      "updateSuccess": "تم تحديث المستخدم",
+      "updateSuccessDesc": "تم تحديث المستخدم بنجاح",
+      "deleteSuccess": "تم حذف المستخدم",
+      "deleteSuccessDesc": "تم حذف المستخدم بنجاح",
+      "error": "خطأ",
+      "fillRequired": "يرجى ملء جميع الحقول المطلوبة",
+      "confirmDelete": "هل أنت متأكد من حذف هذا المستخدم؟",
+      "noUsers": "لا يوجد مستخدمون"
+    }
+  },
+  "notFound": {
+    "title": "الصفحة غير موجودة",
+    "message": "عذراً، الصفحة التي تبحث عنها غير موجودة",
+    "backToHome": "العودة للرئيسية"
   },
   "services": {
     "title": "الخدمات",
@@ -138,6 +283,9 @@
     "delete": "حذف",
     "edit": "تعديل",
     "add": "إضافة",
+    "create": "إنشاء",
+    "update": "تحديث",
+    "view": "عرض",
     "search": "بحث",
     "filter": "تصفية",
     "export": "تصدير",
@@ -155,7 +303,8 @@
     "next": "التالي",
     "previous": "السابق",
     "submit": "إرسال",
-    "reset": "إعادة تعيين"
+    "reset": "إعادة تعيين",
+    "actions": "الإجراءات"
   },
   "footer": {
     "copyright": "2025 Tempweb",

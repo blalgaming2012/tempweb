@@ -10,7 +10,10 @@
     "workers": "Workers",
     "customers": "Customers",
     "reports": "Reports",
-    "settings": "Settings"
+    "settings": "Settings",
+    "serviceRequests": "Service Requests",
+    "workerTasks": "Worker Tasks",
+    "adminPanel": "Admin Panel"
   },
   "auth": {
     "login": "Login",
@@ -24,9 +27,15 @@
     "loginSuccess": "Login successful",
     "loginError": "Login failed"
   },
+  "roles": {
+    "admin": "Admin",
+    "service": "Customer Service",
+    "worker": "Worker"
+  },
   "home": {
     "welcome": "Welcome to",
     "getStarted": "Get Started",
+    "subtitle": "Interactive Services and Workers Management System",
     "features": {
       "title": "Key Features",
       "customerService": {
@@ -73,9 +82,145 @@
   "dashboard": {
     "title": "Dashboard",
     "welcome": "Welcome",
-    "overview": "Overview",
-    "statistics": "Statistics",
-    "recentActivity": "Recent Activity"
+    "systemSummary": "Here's your system summary",
+    "tasksSummary": "Here's your tasks summary",
+    "serviceRequests": "Service Requests",
+    "tasks": "Tasks",
+    "users": "Users",
+    "stats": {
+      "totalRequests": "Total Requests",
+      "allRequests": "All Requests",
+      "newRequests": "New Requests",
+      "notProcessed": "Not Processed",
+      "inProgress": "In Progress",
+      "workingOn": "Working On",
+      "completed": "Completed",
+      "done": "Done",
+      "totalTasks": "Total Tasks",
+      "allTasks": "All Tasks",
+      "assignedToYou": "All tasks assigned to you",
+      "pendingTasks": "Pending Tasks",
+      "pending": "Pending",
+      "waitingToStart": "Waiting to Start",
+      "totalWorkers": "Workers",
+      "allWorkers": "Total Workers"
+    }
+  },
+  "serviceRequests": {
+    "title": "Service Requests",
+    "createRequest": "Create New Request",
+    "editRequest": "Edit Request",
+    "viewRequest": "View Request",
+    "deleteRequest": "Delete Request",
+    "assignWorker": "Assign Worker",
+    "filterByStatus": "Filter by Status",
+    "all": "All",
+    "customerInfo": "Customer Information",
+    "customerName": "Customer Name",
+    "customerPhone": "Phone Number",
+    "customerEmail": "Email",
+    "serviceInfo": "Service Information",
+    "service": "Service",
+    "selectService": "Select Service",
+    "description": "Description",
+    "priority": "Priority",
+    "status": "Status",
+    "assignedWorker": "Assigned Worker",
+    "selectWorker": "Select Worker",
+    "createdAt": "Created At",
+    "updatedAt": "Updated At",
+    "priorities": {
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High"
+    },
+    "statuses": {
+      "new": "New",
+      "assigned": "Assigned",
+      "in_progress": "In Progress",
+      "completed": "Completed",
+      "cancelled": "Cancelled"
+    },
+    "messages": {
+      "createSuccess": "Request Created",
+      "createSuccessDesc": "Service request created successfully",
+      "updateSuccess": "Status Updated",
+      "updateSuccessDesc": "Request status updated successfully",
+      "assignSuccess": "Worker Assigned",
+      "assignSuccessDesc": "Worker assigned to request successfully",
+      "deleteSuccess": "Request Deleted",
+      "deleteSuccessDesc": "Request deleted successfully",
+      "error": "Error",
+      "fillRequired": "Please fill all required fields",
+      "confirmDelete": "Are you sure you want to delete this request?",
+      "noRequests": "No requests available"
+    }
+  },
+  "workerTasks": {
+    "title": "My Tasks",
+    "myTasks": "My Tasks",
+    "taskDetails": "Task Details",
+    "updateStatus": "Update Status",
+    "taskInfo": "Task Information",
+    "requestInfo": "Request Information",
+    "customerInfo": "Customer Information",
+    "service": "Service",
+    "description": "Description",
+    "priority": "Priority",
+    "status": "Status",
+    "customerName": "Customer Name",
+    "customerPhone": "Phone Number",
+    "customerEmail": "Email",
+    "assignedAt": "Assigned At",
+    "updatedAt": "Updated At",
+    "filterByStatus": "Filter by Status",
+    "all": "All",
+    "statuses": {
+      "pending": "Pending",
+      "in_progress": "In Progress",
+      "completed": "Completed"
+    },
+    "priorities": {
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High"
+    },
+    "messages": {
+      "updateSuccess": "Status Updated",
+      "updateSuccessDesc": "Task status updated successfully",
+      "noTasks": "No tasks assigned to you"
+    }
+  },
+  "adminPanel": {
+    "title": "Admin Panel",
+    "userManagement": "User Management",
+    "addUser": "Add User",
+    "editUser": "Edit User",
+    "deleteUser": "Delete User",
+    "fullName": "Full Name",
+    "email": "Email",
+    "password": "Password",
+    "role": "Role",
+    "selectRole": "Select Role",
+    "createdAt": "Created At",
+    "actions": "Actions",
+    "messages": {
+      "createSuccess": "User Created",
+      "createSuccessDesc": "User created successfully",
+      "updateSuccess": "User Updated",
+      "updateSuccessDesc": "User updated successfully",
+      "deleteSuccess": "User Deleted",
+      "deleteSuccessDesc": "User deleted successfully",
+      "error": "Error",
+      "fillRequired": "Please fill all required fields",
+      "confirmDelete": "Are you sure you want to delete this user?",
+      "noUsers": "No users available"
+    }
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "message": "Sorry, the page you are looking for does not exist",
+    "backToHome": "Back to Home"
   },
   "services": {
     "title": "Services",
@@ -138,6 +283,9 @@
     "delete": "Delete",
     "edit": "Edit",
     "add": "Add",
+    "create": "Create",
+    "update": "Update",
+    "view": "View",
     "search": "Search",
     "filter": "Filter",
     "export": "Export",
@@ -155,7 +303,8 @@
     "next": "Next",
     "previous": "Previous",
     "submit": "Submit",
-    "reset": "Reset"
+    "reset": "Reset",
+    "actions": "Actions"
   },
   "footer": {
     "copyright": "2025 Tempweb",
