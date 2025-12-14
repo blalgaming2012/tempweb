@@ -3,9 +3,11 @@ import { useAuth } from '@/contexts/AuthContext';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Zap, Users, ClipboardList, Shield, Sparkles, ArrowLeft, CheckCircle2 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export default function Home() {
   const { user } = useAuth();
+  const { t } = useTranslation();
 
   return (
     <div className="min-h-screen">
@@ -14,7 +16,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="container py-20 animate-fade-in-down">
         <div className="max-w-4xl mx-auto text-center space-y-6">
-          <div className="flex justify-center mb-6 animate-pulse-glow">
+          <div className="flex justify-center mb-6">
             <img 
               src="/tempweb-logo.png" 
               alt="Tempweb Logo" 
@@ -23,11 +25,11 @@ export default function Home() {
           </div>
           
           <p className="text-2xl md:text-3xl text-muted-foreground font-medium">
-            نظام إدارة الخدمات والعمال التفاعلي
+            {t('app.description')}
           </p>
           
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            منصة متكاملة وحديثة لإدارة طلبات الخدمة، تنظيم المهام، ومتابعة أداء العمال بكفاءة عالية
+            {t('home.features.customerService.description')}
           </p>
           
           <div className="flex gap-4 justify-center pt-6 flex-wrap">
@@ -35,7 +37,7 @@ export default function Home() {
               <Link to="/dashboard">
                 <Button size="lg" className="hover-lift text-lg px-8 py-6">
                   <ArrowLeft className="w-5 h-5 ml-2" />
-                  الذهاب إلى لوحة التحكم
+                  {t('nav.dashboard')}
                 </Button>
               </Link>
             ) : (
@@ -43,12 +45,12 @@ export default function Home() {
                 <Link to="/login">
                   <Button size="lg" className="hover-lift text-lg px-8 py-6">
                     <Zap className="w-5 h-5 ml-2" />
-                    تسجيل الدخول
+                    {t('auth.login')}
                   </Button>
                 </Link>
                 <Button size="lg" variant="outline" className="hover-lift text-lg px-8 py-6">
                   <Sparkles className="w-5 h-5 ml-2" />
-                  معرفة المزيد
+                  {t('home.getStarted')}
                 </Button>
               </>
             )}

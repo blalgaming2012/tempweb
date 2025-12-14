@@ -1,0 +1,164 @@
+{
+  "app": {
+    "name": "Services and Workers Management System",
+    "description": "Interactive Services and Workers Management System"
+  },
+  "nav": {
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "services": "Services",
+    "workers": "Workers",
+    "customers": "Customers",
+    "reports": "Reports",
+    "settings": "Settings"
+  },
+  "auth": {
+    "login": "Login",
+    "logout": "Logout",
+    "email": "Email",
+    "password": "Password",
+    "loginButton": "Login",
+    "loggingIn": "Logging in...",
+    "emailRequired": "Email is required",
+    "passwordRequired": "Password is required",
+    "loginSuccess": "Login successful",
+    "loginError": "Login failed"
+  },
+  "home": {
+    "welcome": "Welcome to",
+    "getStarted": "Get Started",
+    "features": {
+      "title": "Key Features",
+      "customerService": {
+        "title": "Customer Service",
+        "description": "Comprehensive customer request management with an easy-to-use interface"
+      },
+      "workerManagement": {
+        "title": "Worker Management",
+        "description": "Advanced system for managing workers and tracking their performance"
+      },
+      "security": {
+        "title": "High Security",
+        "description": "Advanced data protection with Row Level Security"
+      },
+      "performance": {
+        "title": "Optimized Performance",
+        "description": "Optimized database queries for maximum speed"
+      },
+      "darkMode": {
+        "title": "Dark Mode",
+        "description": "Full support for dark and light modes"
+      },
+      "responsive": {
+        "title": "Responsive Design",
+        "description": "Responsive interface that works on all devices"
+      }
+    },
+    "howItWorks": {
+      "title": "How It Works",
+      "step1": {
+        "title": "Login",
+        "description": "Log in using your email and password"
+      },
+      "step2": {
+        "title": "Choose Your Role",
+        "description": "Access the appropriate dashboard for your role (customer service or worker)"
+      },
+      "step3": {
+        "title": "Start Working",
+        "description": "Use the available tools to efficiently manage tasks and requests"
+      }
+    }
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Welcome",
+    "overview": "Overview",
+    "statistics": "Statistics",
+    "recentActivity": "Recent Activity"
+  },
+  "services": {
+    "title": "Services",
+    "addService": "Add Service",
+    "editService": "Edit Service",
+    "deleteService": "Delete Service",
+    "serviceName": "Service Name",
+    "serviceDescription": "Service Description",
+    "servicePrice": "Price",
+    "serviceStatus": "Status",
+    "active": "Active",
+    "inactive": "Inactive"
+  },
+  "workers": {
+    "title": "Workers",
+    "addWorker": "Add Worker",
+    "editWorker": "Edit Worker",
+    "deleteWorker": "Delete Worker",
+    "workerName": "Worker Name",
+    "workerEmail": "Email",
+    "workerPhone": "Phone Number",
+    "workerStatus": "Status",
+    "available": "Available",
+    "busy": "Busy",
+    "offline": "Offline"
+  },
+  "customers": {
+    "title": "Customers",
+    "addCustomer": "Add Customer",
+    "editCustomer": "Edit Customer",
+    "deleteCustomer": "Delete Customer",
+    "customerName": "Customer Name",
+    "customerEmail": "Email",
+    "customerPhone": "Phone Number",
+    "customerAddress": "Address"
+  },
+  "reports": {
+    "title": "Reports",
+    "generateReport": "Generate Report",
+    "exportReport": "Export Report",
+    "reportType": "Report Type",
+    "dateRange": "Date Range",
+    "from": "From",
+    "to": "To"
+  },
+  "settings": {
+    "title": "Settings",
+    "profile": "Profile",
+    "preferences": "Preferences",
+    "security": "Security",
+    "notifications": "Notifications",
+    "language": "Language",
+    "theme": "Theme",
+    "lightMode": "Light Mode",
+    "darkMode": "Dark Mode"
+  },
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "add": "Add",
+    "search": "Search",
+    "filter": "Filter",
+    "export": "Export",
+    "import": "Import",
+    "refresh": "Refresh",
+    "loading": "Loading...",
+    "noData": "No data available",
+    "error": "An error occurred",
+    "success": "Operation completed successfully",
+    "confirm": "Confirm",
+    "yes": "Yes",
+    "no": "No",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "submit": "Submit",
+    "reset": "Reset"
+  },
+  "footer": {
+    "copyright": "2025 Tempweb",
+    "allRightsReserved": "All Rights Reserved"
+  }
+}

@@ -1,0 +1,164 @@
+{
+  "app": {
+    "name": "نظام إدارة الخدمات والعمال",
+    "description": "نظام إدارة الخدمات والعمال التفاعلي"
+  },
+  "nav": {
+    "home": "الرئيسية",
+    "dashboard": "لوحة التحكم",
+    "services": "الخدمات",
+    "workers": "العمال",
+    "customers": "العملاء",
+    "reports": "التقارير",
+    "settings": "الإعدادات"
+  },
+  "auth": {
+    "login": "تسجيل الدخول",
+    "logout": "تسجيل الخروج",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "loginButton": "تسجيل الدخول",
+    "loggingIn": "جاري تسجيل الدخول...",
+    "emailRequired": "البريد الإلكتروني مطلوب",
+    "passwordRequired": "كلمة المرور مطلوبة",
+    "loginSuccess": "تم تسجيل الدخول بنجاح",
+    "loginError": "فشل تسجيل الدخول"
+  },
+  "home": {
+    "welcome": "مرحباً بك في",
+    "getStarted": "ابدأ الآن",
+    "features": {
+      "title": "المميزات الرئيسية",
+      "customerService": {
+        "title": "خدمة العملاء",
+        "description": "إدارة شاملة لطلبات العملاء مع واجهة سهلة الاستخدام"
+      },
+      "workerManagement": {
+        "title": "إدارة العمال",
+        "description": "نظام متقدم لإدارة العمال ومتابعة أدائهم"
+      },
+      "security": {
+        "title": "أمان عالي",
+        "description": "حماية متقدمة للبيانات مع Row Level Security"
+      },
+      "performance": {
+        "title": "أداء محسّن",
+        "description": "استعلامات قاعدة بيانات محسّنة لأقصى سرعة"
+      },
+      "darkMode": {
+        "title": "الوضع الداكن",
+        "description": "دعم كامل للوضع الداكن والساطع"
+      },
+      "responsive": {
+        "title": "تصميم متجاوب",
+        "description": "واجهة متجاوبة تعمل على جميع الأجهزة"
+      }
+    },
+    "howItWorks": {
+      "title": "كيف يعمل النظام",
+      "step1": {
+        "title": "تسجيل الدخول",
+        "description": "سجل دخولك باستخدام بريدك الإلكتروني وكلمة المرور"
+      },
+      "step2": {
+        "title": "اختر دورك",
+        "description": "الوصول إلى لوحة التحكم المناسبة لدورك (خدمة عملاء أو عامل)"
+      },
+      "step3": {
+        "title": "ابدأ العمل",
+        "description": "استخدم الأدوات المتاحة لإدارة المهام والطلبات بكفاءة"
+      }
+    }
+  },
+  "dashboard": {
+    "title": "لوحة التحكم",
+    "welcome": "مرحباً",
+    "overview": "نظرة عامة",
+    "statistics": "الإحصائيات",
+    "recentActivity": "النشاط الأخير"
+  },
+  "services": {
+    "title": "الخدمات",
+    "addService": "إضافة خدمة",
+    "editService": "تعديل الخدمة",
+    "deleteService": "حذف الخدمة",
+    "serviceName": "اسم الخدمة",
+    "serviceDescription": "وصف الخدمة",
+    "servicePrice": "السعر",
+    "serviceStatus": "الحالة",
+    "active": "نشط",
+    "inactive": "غير نشط"
+  },
+  "workers": {
+    "title": "العمال",
+    "addWorker": "إضافة عامل",
+    "editWorker": "تعديل العامل",
+    "deleteWorker": "حذف العامل",
+    "workerName": "اسم العامل",
+    "workerEmail": "البريد الإلكتروني",
+    "workerPhone": "رقم الهاتف",
+    "workerStatus": "الحالة",
+    "available": "متاح",
+    "busy": "مشغول",
+    "offline": "غير متصل"
+  },
+  "customers": {
+    "title": "العملاء",
+    "addCustomer": "إضافة عميل",
+    "editCustomer": "تعديل العميل",
+    "deleteCustomer": "حذف العميل",
+    "customerName": "اسم العميل",
+    "customerEmail": "البريد الإلكتروني",
+    "customerPhone": "رقم الهاتف",
+    "customerAddress": "العنوان"
+  },
+  "reports": {
+    "title": "التقارير",
+    "generateReport": "إنشاء تقرير",
+    "exportReport": "تصدير التقرير",
+    "reportType": "نوع التقرير",
+    "dateRange": "الفترة الزمنية",
+    "from": "من",
+    "to": "إلى"
+  },
+  "settings": {
+    "title": "الإعدادات",
+    "profile": "الملف الشخصي",
+    "preferences": "التفضيلات",
+    "security": "الأمان",
+    "notifications": "الإشعارات",
+    "language": "اللغة",
+    "theme": "المظهر",
+    "lightMode": "الوضع الساطع",
+    "darkMode": "الوضع الداكن"
+  },
+  "common": {
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "delete": "حذف",
+    "edit": "تعديل",
+    "add": "إضافة",
+    "search": "بحث",
+    "filter": "تصفية",
+    "export": "تصدير",
+    "import": "استيراد",
+    "refresh": "تحديث",
+    "loading": "جاري التحميل...",
+    "noData": "لا توجد بيانات",
+    "error": "حدث خطأ",
+    "success": "تمت العملية بنجاح",
+    "confirm": "تأكيد",
+    "yes": "نعم",
+    "no": "لا",
+    "close": "إغلاق",
+    "back": "رجوع",
+    "next": "التالي",
+    "previous": "السابق",
+    "submit": "إرسال",
+    "reset": "إعادة تعيين"
+  },
+  "footer": {
+    "copyright": "2025 Tempweb",
+    "allRightsReserved": "جميع الحقوق محفوظة"
+  }
+}

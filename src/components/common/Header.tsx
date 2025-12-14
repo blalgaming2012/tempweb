@@ -3,12 +3,15 @@ import { useAuth } from '@/contexts/AuthContext';
 import { useTheme } from '@/contexts/ThemeContext';
 import { Button } from '@/components/ui/button';
 import { Moon, Sun, LogOut, LayoutDashboard, Users, ClipboardList, Zap, LogIn } from 'lucide-react';
+import LanguageSwitcher from './LanguageSwitcher';
+import { useTranslation } from 'react-i18next';
 
 export default function Header() {
   const location = useLocation();
   const navigate = useNavigate();
   const { user, logout } = useAuth();
   const { theme, toggleTheme } = useTheme();
+  const { t } = useTranslation();
 
   const handleLogout = () => {
     logout();
@@ -22,20 +25,20 @@ export default function Header() {
 
     if (user.role === 'admin') {
       items.push(
-        { path: '/dashboard', label: 'لوحة التحكم', icon: LayoutDashboard },
-        { path: '/requests', label: 'طلبات الخدمة', icon: ClipboardList },
-        { path: '/tasks', label: 'المهام', icon: ClipboardList },
-        { path: '/admin', label: 'إدارة المستخدمين', icon: Users }
+        { path: '/dashboard', label: t('nav.dashboard'), icon: LayoutDashboard },
+        { path: '/requests', label: t('services.title'), icon: ClipboardList },
+        { path: '/tasks', label: t('workers.title'), icon: ClipboardList },
+        { path: '/admin', label: t('customers.title'), icon: Users }
       );
     } else if (user.role === 'customer_service') {
       items.push(
-        { path: '/dashboard', label: 'لوحة التحكم', icon: LayoutDashboard },
-        { path: '/requests', label: 'طلبات الخدمة', icon: ClipboardList }
+        { path: '/dashboard', label: t('nav.dashboard'), icon: LayoutDashboard },
+        { path: '/requests', label: t('services.title'), icon: ClipboardList }
       );
     } else if (user.role === 'worker') {
       items.push(
-        { path: '/dashboard', label: 'لوحة التحكم', icon: LayoutDashboard },
-        { path: '/my-tasks', label: 'مهامي', icon: ClipboardList }
+        { path: '/dashboard', label: t('nav.dashboard'), icon: LayoutDashboard },
+        { path: '/my-tasks', label: t('workers.title'), icon: ClipboardList }
       );
     }
 
@@ -83,7 +86,7 @@ export default function Header() {
               <div className="hidden md:flex items-center gap-2 px-3 py-1.5 bg-secondary rounded-lg animate-slide-in-left hover-glow">
                 <span className="text-sm font-medium">{user.fullName}</span>
                 <span className="text-xs text-muted-foreground">
-                  ({user.role === 'admin' ? 'مدير' : user.role === 'customer_service' ? 'خدمة عملاء' : 'عامل'})
+                  ({user.role === 'admin' ? t('dashboard.welcome') : user.role === 'customer_service' ? t('home.features.customerService.title') : t('workers.title')})
                 </span>
               </div>
 
@@ -91,7 +94,7 @@ export default function Header() {
                 variant="ghost"
                 size="icon"
                 onClick={handleLogout}
-                title="تسجيل الخروج"
+                title={t('auth.logout')}
                 className="hover-scale"
               >
                 <LogOut className="w-5 h-5" />
@@ -101,16 +104,18 @@ export default function Header() {
             <Link to="/login">
               <Button className="gap-2 hover-lift">
                 <LogIn className="w-4 h-4" />
-                تسجيل الدخول
+                {t('auth.login')}
               </Button>
             </Link>
           )}
+
+          <LanguageSwitcher />
 
           <Button
             variant="ghost"
             size="icon"
             onClick={toggleTheme}
-            title={theme === 'light' ? 'الوضع الداكن' : 'الوضع الفاتح'}
+            title={theme === 'light' ? t('settings.darkMode') : t('settings.lightMode')}
             className="hover-scale"
           >
             {theme === 'light' ? (

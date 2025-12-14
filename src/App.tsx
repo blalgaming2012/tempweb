@@ -6,12 +6,22 @@ import Header from '@/components/common/Header';
 import routes from './routes';
 import { useEffect } from 'react';
 import { initializeStorage } from '@/services/storage';
+import { useTranslation } from 'react-i18next';
 
 function App() {
+  const { i18n } = useTranslation();
+
   useEffect(() => {
     // تهيئة البيانات عند تحميل التطبيق
     initializeStorage();
-  }, []);
+    
+    // تعيين اتجاه اللغة
+    const savedLanguage = localStorage.getItem('language') || 'ar';
+    const direction = savedLanguage === 'ar' ? 'rtl' : 'ltr';
+    document.documentElement.dir = direction;
+    document.documentElement.lang = savedLanguage;
+    i18n.changeLanguage(savedLanguage);
+  }, [i18n]);
 
   return (
     <Router>

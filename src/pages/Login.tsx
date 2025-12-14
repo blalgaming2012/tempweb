@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
+import { useTranslation } from 'react-i18next';
 
 export default function Login() {
   const [username, setUsername] = useState('');
@@ -14,6 +15,7 @@ export default function Login() {
   const { login, user } = useAuth();
   const navigate = useNavigate();
   const { toast } = useToast();
+  const { t } = useTranslation();
 
   // إذا كان المستخدم مسجل دخول بالفعل، إعادة توجيهه إلى لوحة التحكم
   useEffect(() => {
@@ -27,8 +29,8 @@ export default function Login() {
     
     if (!username || !password) {
       toast({
-        title: 'خطأ',
-        description: 'يرجى إدخال اسم المستخدم وكلمة المرور',
+        title: t('common.error'),
+        description: t('auth.emailRequired') + ' ' + t('auth.passwordRequired'),
         variant: 'destructive',
       });
       return;
@@ -40,14 +42,14 @@ export default function Login() {
 
     if (result.success) {
       toast({
-        title: 'تم تسجيل الدخول بنجاح',
-        description: 'مرحباً بك في Tempweb',
+        title: t('auth.loginSuccess'),
+        description: t('home.welcome') + ' Tempweb',
       });
       navigate('/dashboard');
     } else {
       toast({
-        title: 'فشل تسجيل الدخول',
-        description: result.error || 'حدث خطأ أثناء تسجيل الدخول',
+        title: t('auth.loginError'),
+        description: result.error || t('common.error'),
         variant: 'destructive',
       });
     }
@@ -58,22 +60,22 @@ export default function Login() {
       <div className="parallax-bg" />
       <Card className="w-full max-w-md animate-scale-in hover-lift">
         <CardHeader className="text-center">
-          <div className="mx-auto mb-6 animate-fade-in-down">
+          <div className="mx-auto mb-6">
             <img 
               src="/tempweb-logo.png" 
               alt="Tempweb Logo" 
-              className="w-64 h-auto mx-auto animate-pulse-glow border-0"
+              className="w-64 h-auto mx-auto border-0"
             />
           </div>
           <CardTitle className="text-2xl font-heading gradient-text">
-            تسجيل الدخول
+            {t('auth.login')}
           </CardTitle>
-          <CardDescription className="text-base mt-2">نظام إدارة الخدمات والعمال التفاعلي</CardDescription>
+          <CardDescription className="text-base mt-2">{t('app.description')}</CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-2 animate-fade-in-up stagger-1">
-              <Label htmlFor="username">اسم المستخدم</Label>
+              <Label htmlFor="username">{t('auth.email')}</Label>
               <Input
                 id="username"
                 type="text"
@@ -86,11 +88,11 @@ export default function Login() {
               />
             </div>
             <div className="space-y-2 animate-fade-in-up stagger-2">
-              <Label htmlFor="password">كلمة المرور</Label>
+              <Label htmlFor="password">{t('auth.password')}</Label>
               <Input
                 id="password"
                 type="password"
-                placeholder="أدخل كلمة المرور"
+                placeholder={t('auth.password')}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 disabled={isLoading}
@@ -106,10 +108,10 @@ export default function Login() {
               {isLoading ? (
                 <span className="flex items-center gap-2">
                   <span className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin" />
-                  جاري تسجيل الدخول...
+                  {t('auth.loggingIn')}
                 </span>
               ) : (
-                'تسجيل الدخول'
+                t('auth.loginButton')
               )}
             </Button>
           </form>
