@@ -18,7 +18,7 @@ export default function Home() {
             <img 
               src="/tempweb-logo.png" 
               alt="Tempweb Logo" 
-              className="w-96 h-auto"
+              className="w-96 h-auto border-0"
             />
           </div>
           
@@ -273,7 +273,7 @@ export default function Home() {
               <img 
                 src="/tempweb-logo.png" 
                 alt="Tempweb Logo" 
-                className="h-8 w-auto"
+                className="h-8 w-auto border-0"
               />
             </div>
             <p className="text-sm text-muted-foreground">

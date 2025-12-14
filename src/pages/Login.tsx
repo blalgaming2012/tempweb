@@ -62,7 +62,7 @@ export default function Login() {
             <img 
               src="/tempweb-logo.png" 
               alt="Tempweb Logo" 
-              className="w-64 h-auto mx-auto animate-pulse-glow"
+              className="w-64 h-auto mx-auto animate-pulse-glow border-0"
             />
           </div>
           <CardTitle className="text-2xl font-heading gradient-text">

@@ -52,7 +52,7 @@ export default function Header() {
             <img 
               src="/tempweb-logo.png" 
               alt="Tempweb Logo" 
-              className="h-10 w-auto"
+              className="h-10 w-auto border-0"
             />
           </Link>
 
